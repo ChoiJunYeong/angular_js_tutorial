@@ -1,0 +1,31 @@
+  <div class="container">
+      <div class="row row-content" ng-controller="MenuController">
+          <div class="col-xs-12">
+              <div class="media">
+                <div class="media-left">
+                  <a href="#">
+                    <img class="media-object" ng-src="{{dish.image}}">
+                    </a>
+                    </div>
+                    <div class="media-body">
+                    <h4 class="media-heading">
+                      {{dish.name}}
+                      <span class="label label-danger">{{dish.label}}</span>
+                      <span class="badge">{{dish.price | currency}}</span>
+                    </h4>
+                    {{dish.description}}
+              </div>
+              </div>
+          </div>
+          <span> Customer Comments</span>
+          Sort by:
+                       <input type="text" ng-model="type">
+          <blockquote ng-repeat="comment in dish.comments | orderBy : type">
+            <p>{{comment.rating}} Stars</p>
+            <p>{{comment.comment}}</p>
+            <footer>{{comment.author}}
+              {{comment.date | date : 'MMM. dd, yyyy'}}</footer>
+            </blockquote>
+      </div>
+
+  </div>
